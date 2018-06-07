@@ -1,0 +1,175 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Exo+2&subset=latin-ext");
+html, body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.menu {
+  position: relative;
+  background: #efefef;
+  box-shadow: 0 0 23px black;
+  z-index: 100;
+  width: 100%;
+  display: none; }
+  .menu .logo {
+    font-family: 'Raleway';
+    font-size: 33px;
+    line-height: 80px;
+    padding: 5px;
+    display: inline-block;
+    color: #696969;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 25px;
+    text-shadow: 0 0 3px white;
+    height: 90px; }
+    .menu .logo img {
+      position: relative;
+      top: 4px; }
+  .menu nav {
+    position: relative;
+    float: right; }
+  .menu ul {
+    padding: 0;
+    margin: 0; }
+  .menu li {
+    display: inline-block;
+    list-style: none;
+    vertical-align: top;
+    margin-right: 20px; }
+  .menu a {
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    height: 90px; }
+  .menu a:hover {
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.22) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.22) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.22) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#38000000',GradientType=0 ); }
+  .menu a p {
+    font-family: 'Raleway';
+    color: #696969;
+    margin: 9px 0 5px 0; }
+  .menu a i {
+    text-align: center;
+    width: 100%;
+    color: #696969;
+    font-size: 22px; }
+
+.connector {
+  width: 100%;
+  height: 44px;
+  background: #6f6f6f;
+  background: url("/img/bar1.png");
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 20px #000000; }
+
+.slide1 {
+  width: 100%;
+  height: calc(100vh - 0px);
+  position: relative; }
+  .slide1 .panel {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.43);
+    padding: 15px 20px;
+    display: none; }
+  .slide1 .big, .slide1 .small, .slide1 .author p, .slide1 .author span {
+    font-family: 'Exo2', sans-serif;
+    color: #696969;
+    text-shadow: 0 0 1px white; }
+  .slide1 .big {
+    font-size: 32px; }
+  .slide1 .small {
+    margin-top: 10px;
+    font-size: 22px; }
+  .slide1 .author {
+    font-size: 13px;
+    line-height: 22px; }
+  .slide1 .scroll-down {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    opacity: 0.8;
+    transition: opacity 1s ease;
+    cursor: pointer;
+    padding: 1px;
+    display: none; }
+    .slide1 .scroll-down i {
+      font-size: 53px;
+      color: #696969; }
+  .slide1 .scroll-down:hover {
+    opacity: 1; }
+  .slide1 .scroll-down.hidden {
+    opacity: 0; }
+
+.slide2 {
+  background-image: url("../img/san_francisco.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 800px;
+  width: 100%; }
+
+.footer {
+  background-image: url("../img/pexels.jpg");
+  background-size: cover;
+  background-position: center;
+  padding-top: 300px;
+  padding-bottom: 30px; }
+  .footer * {
+    font-family: 'Raleway'; }
+  .footer .beforeContact {
+    position: relative;
+    width: 80vw; }
+    .footer .beforeContact .box {
+      width: 33.33%;
+      display: inline-block; }
+    .footer .beforeContact .big-box {
+      width: calc(66.66% - 4px);
+      display: inline-block;
+      padding: 0 20px; }
+    .footer .beforeContact p {
+      font-size: 22px;
+      text-shadow: 0 0 13px black;
+      color: white; }
+  .footer .contact {
+    background: rgba(0, 0, 0, 0.73);
+    width: 80vw;
+    color: white; }
+    .footer .contact .box {
+      text-align: center;
+      width: 33.33%;
+      display: inline-block;
+      min-height: 100px;
+      border-right: 1px solid white;
+      vertical-align: top; }
+    .footer .contact .big-box {
+      width: calc(66.66% - 4px);
+      display: inline-block;
+      min-height: 100px;
+      border-right: none;
+      vertical-align: top;
+      padding: 0 20px; }
+      .footer .contact .big-box p {
+        font-size: 15px;
+        margin: 5px 0; }

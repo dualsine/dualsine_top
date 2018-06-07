@@ -1,0 +1,97 @@
+window.render = () ->
+    requestAnimationFrame( window.render )
+    window.raycaster.setFromCamera( window.mouse, window.camera )
+    intersects = window.raycaster.intersectObjects( [plane], true )
+    square = []
+
+    if(intersects[0] && intersects[0].face)
+        arr_x = intersects[0].face.arr_x
+        arr_y = intersects[0].face.arr_y
+        
+        if(arr_x%2==0)
+            square = [
+                window.faces[arr_y][arr_x+1].a,
+                window.faces[arr_y][arr_x+1].b,
+                window.faces[arr_y][arr_x+1].c,
+                ];
+            square.push(intersects[0].face.a);
+        else
+            square = [
+                window.faces[arr_y][arr_x-1].a,
+                window.faces[arr_y][arr_x-1].b,
+                window.faces[arr_y][arr_x-1].c,
+                ];
+            square.push(intersects[0].face.a);
+
+        if window.plane.geometry.vertices[square[0]].z < 25
+            window.plane.geometry.vertices[square[0]].z +=  1.25
+        if window.plane.geometry.vertices[square[1]].z < 25
+            window.plane.geometry.vertices[square[1]].z +=  1.25
+        if window.plane.geometry.vertices[square[2]].z < 25
+            window.plane.geometry.vertices[square[2]].z +=  1.25
+        if window.plane.geometry.vertices[square[3]].z < 25
+            window.plane.geometry.vertices[square[3]].z +=  1.25
+    
+  
+    for vert, i in window.plane.geometry.vertices
+        if square.length>0 && intersects[0] && intersects[0].face
+            if square[0]==i || square[1]==i || square[2]==i || square[3]==i
+                continue
+        if vert.z > 0
+            vert.z -= 0.05
+    window.plane.geometry.verticesNeedUpdate = true
+    window.renderer.render( window.scene, window.camera )
+
+window.onMouseMove = ( event ) ->
+    console.log event, 321
+    window.mouse.x = ( event.clientX / window.slide1.offsetWidth ) * 2 - 1
+    window.mouse.y = - ( (event.clientY-window.slide1.offsetTop) / (window.slide1.offsetHeight) ) * 2 + 1
+
+window.onload = () ->
+    window.slide1 = document.getElementById('slide1')
+    window.slide1.addEventListener( 'mousemove', window.onMouseMove, false )
+
+    w = window.innerWidth
+    h = window.innerHeight
+
+    window.raycaster = new THREE.Raycaster()
+    window.mouse = new THREE.Vector2()
+    window.mouse.x=-2
+    window.scene = new THREE.Scene()
+    window.camera = new THREE.PerspectiveCamera( 45, w / h, 0.1, 1000 )
+    plane_width = 50
+    plane_height = 26
+
+    window.renderer = new THREE.WebGLRenderer()
+    window.renderer.setSize( w, h )
+    document.getElementById('slide1').appendChild( renderer.domElement )
+
+    geometry = new THREE.PlaneGeometry( 1500, 568, plane_width , plane_height )
+    material = new THREE.MeshNormalMaterial( { flatShading: true } )
+    window.plane = new THREE.Mesh( geometry, material )
+    window.scene.add( window.plane )
+
+    x = 0
+    y = 0
+    square = 0
+    window.faces = []
+    for face, i in window.plane.geometry.faces
+        if typeof faces[y]=='undefined'
+            faces[y]=[]
+        face.arr_y = y
+        face.arr_x = x
+        face.square = square
+        window.faces[y].push face
+        x++
+        if square % plane_width == 0 && square > 1
+            y++
+            x=0
+        if i % 2 == 0 && i>1
+            square++
+
+    window.camera.position.set(0,200,200)
+    window.camera.up = new THREE.Vector3(0,0,1)
+    window.camera.lookAt(new THREE.Vector3(0,0,0))
+    window.scene.add( window.camera )
+
+    window.render()

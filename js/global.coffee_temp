@@ -1,0 +1,37 @@
+window.onload = ->
+	init()
+	animate()
+
+window.init = () ->
+  window.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / (window.innerHeight-80), 1, 1000 )
+  window.camera.position.z = 400
+  window.scene = new THREE.Scene()
+  geometry = new THREE.SphereBufferGeometry( 475, 120, 40 )
+  material = new THREE.MeshBasicMaterial( { color: 0xffaa00, wireframe: true } )
+  window.mesh = new THREE.Mesh( geometry, material )
+  window.mesh.translateZ( -10 )
+  window.mesh.translateY( -370 )
+  window.scene.add( window.mesh )
+  
+  hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 )
+  hemiLight.color.setHSL( 0.6, 1, 0.6 )
+  hemiLight.groundColor.setHSL( 0.095, 1, 0.75 )
+  hemiLight.position.set( 0, 50, 0 )
+  window.scene.add( hemiLight )
+  
+  window.renderer = new THREE.WebGLRenderer( { antialias: true } )
+  window.renderer.setPixelRatio( window.devicePixelRatio )
+  window.renderer.setClearColor( 0xffffff )
+  window.renderer.setSize( window.innerWidth, window.innerHeight-80 )
+  document.getElementById('slide1').appendChild( window.renderer.domElement )
+  window.addEventListener( 'resize', onWindowResize, false )
+
+window.animate = () ->
+  requestAnimationFrame( animate )
+  window.mesh.rotation.z += 0.001
+  window.renderer.render( window.scene, window.camera )
+
+window.onWindowResize = () ->
+  window.camera.aspect = window.innerWidth / (window.innerHeight-80)
+  window.camera.updateProjectionMatrix()
+  window.renderer.setSize( window.innerWidth, window.innerHeight-80 )

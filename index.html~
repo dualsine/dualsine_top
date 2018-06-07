@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="#000000" name="theme-color">
+<!--
+manifest.json provides metadata used when your web app is added to the
+homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+-->
+<link href="/manifest.json" rel="manifest">
+<link href="/favicon.ico" rel="shortcut icon">
+<title>React App</title>
+</head>
+<body>
+<noscript>
+You need to enable JavaScript to run this app.
+</noscript>
+<div id="root"></div>
+</body>
+</html>

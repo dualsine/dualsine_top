@@ -1,0 +1,91 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "#000000", :name => "theme-color"}/
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    %title dualsine.pl
+    %link{href: 'css/global.css', :rel => 'stylesheet'}
+  %body
+    %noscript
+      You need to enable JavaScript to run this app.
+    #root
+    %script{:src => "js/three.min.js", :type => "text/javascript"}
+    %script{:src => "js/DRACOLoader.js", :type => "text/javascript"}
+    %script{:src => "js/GLTFLoader.js", :type => "text/javascript"}
+    %script{:src => "js/Detector.js", :type => "text/javascript"}
+    %script{src: 'js/global.js'}
+
+    #menu.menu
+      .logo
+        %img{src: 'img/logo_poprzeczne_efefef.png'}
+      %nav
+        %ul
+          %li
+            %a{:href => ""}
+              %p.unselectable Główna
+              %i.fa.fa-home{"aria-hidden" => "true"}
+          %li
+            %a{:href => ""}
+              %p.unselectable Automatyzacja
+              %i.fa.fa-braille{"aria-hidden" => "true"}
+          %li
+            %a{:href => ""}
+              %p.unselectable Strony www
+              %i.fa.fa-desktop{"aria-hidden" => "true"}
+          %li
+            %a{:href => ""}
+              %p.unselectable Monitoring
+              %i.fa.fa-bug{"aria-hidden" => "true"}
+          %li
+            %a{:href => ""}
+              %p.unselectable Serwery
+              %i.fa.fa-microchip{"aria-hidden" => "true"}
+          %li
+            %a{:href => ""}
+              %p.unselectable Kontakt
+              %i.fa.fa-address-card-o{"aria-hidden" => "true"}
+
+    #slide1.slide1
+      .panel.unselectable
+        .big
+          Technology Evolving
+        .small
+          Nowoczesne technologie pozwalają na nowe spojrzenie
+        .author
+          %p
+            %span Autor skanu 3D:
+            Classical Archaeology Museum, Cambridge University
+      #down-arrow.scroll-down
+        %i.fa.fa-arrow-circle-down{"aria-hidden" => "true"}
+
+    .connector
+
+    #slide2.slide2
+      .panel
+        .big
+          SAN FRANCISCO
+        .small
+          Lorem ipsum at dolor ....
+
+    .connector
+    
+    .footer
+      .beforeContact 
+        .box
+        .big-box
+          %p.unselectable
+            Zapraszamy do kontaktu!
+      .contact
+        .box.unselectable
+          %h1 CHORZÓW!
+          %p our first studio!
+        .big-box
+          %h5.unselectable Kontakt
+          %p Email: office@dualsine.pl
+          %p Telefon: 502 575 999
+
+
+
